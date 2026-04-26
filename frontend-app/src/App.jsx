@@ -4,7 +4,7 @@ import { Layout } from './components/Layout/Layout'
 import { setTokenGetter } from './services/authToken'
 import { useAuth } from '@clerk/clerk-react'
 import { useEffect } from 'react'
-import Spinner from './components/ui/Spinner'
+import Spinner from './components/Ui/Spinner'
 
 import { DeleteAccountHandler } from './components/auth/DeleteAccountHandler'
 
