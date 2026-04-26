@@ -1,0 +1,145 @@
+.div-form-task{
+
+    display: flex;
+    flex-direction: column;
+    height:  250px;
+    background-color: var(--card-bg);
+    padding: 15px;
+    gap: 10px;
+
+    border-radius: 4px;
+    border: 1px solid var( --card-border);
+
+}
+
+.save-task-form {
+
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* importante si quieres que empuje hacia abajo */
+    gap: 20px;
+
+
+
+
+}
+
+.headerform-1{
+    display: flex;
+    justify-content: end;
+
+}
+
+.headerform-2{
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 5px;
+
+}
+
+
+
+
+/* =========================
+   INPUT  GENERAL
+========================= */
+.form-control {
+  width: 100%;
+  padding: 12px 14px;
+
+  border-radius: 10px;
+  border: 3px solid var(--border);
+
+  background: transparent;
+  color: var(--text);
+  height: 60px; /* <--- ajusta esta altura */
+  font-size: 14px;
+  outline: none;
+
+  transition: all 0.2s ease;
+}
+
+
+
+/* focus moderno */
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--shadow-input);
+}
+
+.form-control:focus::placeholder {
+  opacity: 0;
+}
+
+
+/* Evitar que el autocompletado cambie el fondo */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px var(--card-bg) inset; /* rellena con tu fondo */
+    -webkit-text-fill-color: var(--text); /* mantiene el color del texto */
+    transition: background-color 5000s ease-in-out 0s; /* evita parpadeo */
+}
+
+
+/* =========================
+   BOTÓN
+========================= */
+
+
+.btn-success {
+    background: linear-gradient(135deg, var(--btn-success-start), var(--btn-success-end));
+    color: var(--btn-success-text);
+    box-shadow: 0 4px 6px var(--btn-success-shadow);
+    transition: all 0.2s ease;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, var(--btn-success-hover-start), var(--btn-success-hover-end));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px var(--btn-success-shadow-hover);
+}
+
+.btn-success:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 5px var(--btn-success-shadow);
+}
+
+
+@media(max-width:768px) {
+  .header-form{
+    display: none;
+    
+  }
+
+  .div-form-task{
+    height:  auto;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  
+   
+}
+
+.save-task-form {
+
+    flex-direction: row;
+    gap: 5px;
+
+
+}
+
+.form-control {
+
+  height: 35px; /* <--- ajusta esta altura */
+  font-size: 12px;
+
+}
+
+.save-task-form .btn {
+  padding: 7px 10px;
+
+
+}
+
+
+
+}

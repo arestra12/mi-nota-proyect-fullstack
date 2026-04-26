@@ -1,0 +1,50 @@
+
+.header-1 {
+  display: flex;
+  
+  justify-content: end;
+  padding-bottom: 5px;
+
+  color: var(--text-muted);
+
+
+}
+
+.header-2 {
+  display: flex;
+  justify-content: start;
+  padding-bottom: 8px;
+  
+  
+}
+
+
+
+.tasks-tab {
+
+
+  height: 100vh;
+
+  
+  
+}
+.task-progress{
+padding-top: 10px;
+}
+
+
+.task-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 10px;
+}
+
+@media(max-width:1000px) {
+  .task-layout {
+    
+    grid-template-columns: repeat(1, 1fr);
+
+  }
+}
+

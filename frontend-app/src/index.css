@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+
+:root {
+  /* BACKGROUND */
+  --bg: #121212;
+  --puntos: #000;
+
+
+  /* TEXT */
+  --text: #e5e5e5;
+  --text-secondary: #a3a3a3;
+  --text-muted: #737373;
+  --text-note: #d1d5db;
+  --text-date: #9ca3af;
+  --text-note-title: #e4e6e9;
+
+
+
+  /* SURFACES */
+  --card-bg: #1e1e1e;
+  --card-border: #333;
+  --card-hover: #f9fafb;
+  --card-list: #2e2d2d;
+  --card-opacity: rgba(0, 0, 0, 0.637);
+
+  /* PRIMARY */
+  --primary: #16a34a;
+  --primary-hover: #16a34a;
+  --primary-select: #098837;
+  --primary-soft: #052e16;
+
+  /* BORDER */
+  --border: #554c33;
+  --border-strong: #2e323a;
+
+  /*BTN SUCCESS*/
+  /* Estado normal: más oscuro que antes */
+  --btn-success-start: #0e4624;
+  /* verde oscuro medio */
+  --btn-success-end: #0b311b;
+  /* verde oscuro intenso */
+  --btn-success-text: #ffffff;
+  --btn-success-shadow: rgba(0, 0, 0, 0.2);
+  /* sombra más marcada */
+
+  /* Hover: aún más oscuro */
+  --btn-success-hover-start: #024119;
+  /* verde aún más profundo */
+  --btn-success-hover-end: #04411a;
+  /* verde oscuro casi negro */
+  --btn-success-shadow-hover: rgba(0, 0, 0, 0.35);
+  /* sombra más intensa */
+
+
+  /*BTN DANGER*/
+  /* Estado normal: más oscuro que antes */
+  --btn-danger-start: #5a1e1e;
+  /* rojo oscuro medio */
+  --btn-danger-end: #3b1212;
+  /* rojo oscuro intenso */
+  --btn-danger-text: #ffffff;
+  --btn-danger-shadow: rgba(0, 0, 0, 0.2);
+  /* sombra más marcada */
+
+  /* Hover: aún más oscuro */
+  --btn-danger-hover-start: #4a1818;
+  /* rojo más profundo */
+  --btn-danger-hover-end: #2a0f0f;
+  /* rojo casi negro */
+  --btn-danger-shadow-hover: rgba(0, 0, 0, 0.35);
+  /* sombra más intensa */
+
+
+
+
+  /*BTN FILTER*/
+  /* Estado normal */
+  --btn-filter-start: #2e0f61;
+  /* morado profundo */
+  --btn-filter-end: #461791;
+  /* morado intenso */
+  --btn-filter-text: #ffffff;
+  /* blanco para contraste */
+  --btn-filter-shadow: rgba(0, 0, 0, 0.5);
+  /* sombra oscura y marcada */
+
+  /* Hover */
+  --btn-filter-hover-start: #3e1486;
+  /* morado brillante */
+  --btn-filter-hover-end: #470486;
+  /* morado intenso */
+  --btn-filter-shadow-hover: rgba(0, 0, 0, 0.7);
+  /* sombra más intensa */
+
+
+
+  /* BTN WARNING (más naranja) */
+  /* Estado normal */
+  --btn-warning-start: #80290c;
+  /* naranja oscuro */
+  --btn-warning-end: #6b240c;
+  /* naranja quemado */
+  --btn-warning-text: #ffffff;
+  --btn-warning-shadow: rgba(0, 0, 0, 0.25);
+
+
+  /* Hover */
+  --btn-warning-hover-start: #853408;
+  /* naranja más vivo */
+  --btn-warning-hover-end: #882a05;
+  /* naranja fuerte profundo */
+  --btn-warning-shadow-hover: rgba(0, 0, 0, 0.4);
+
+  /* BTN BACK (info) */
+  --btn-back-start: #0a1c4d;
+  /* azul oscuro */
+  --btn-back-end: #122c83;
+  /* azul profundo */
+  --btn-back-text: #ffffff;
+  --btn-back-shadow: rgba(0, 0, 0, 0.25);
+
+  /* Hover */
+  --btn-back-hover-start: #0d2f64;
+  /* azul vivo */
+  --btn-back-hover-end: #062975;
+  --btn-back-shadow-hover: rgba(0, 0, 0, 0.4);
+
+
+  --gradiente-start: #0c0c0c;
+  --gradiente-end: #0c0c0c;
+
+  --bg-tag: rgba(99, 102, 241, 0.2);
+  --text-tag: #a5b4fc;
+  --pinned: #971616;
+  --shadow-input: rgba(145, 175, 76, 0.2);
+
+
+
+  --shadow-sm: 0 1px 2px 0 rgba(77, 197, 30, 0.05);
+}
+
+
+
+
+/* ============================= */
+/* 🔤 TIPOGRAFÍA GLOBAL */
+/* ============================= */
+:root {
+  --font-main: 'Inter', sans-serif;
+  ;
+}
+
+html {
+  font-size: 16px;
+}
+
+:root {
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 24px;
+  --text-2xl: 28px;
+}
+
+body {
+  font-size: var(--text-md);
+
+  background-color: #111;
+  /* o el color de tu app */
+
+}
+
+.sidebar {
+  font-size: var(--text-sm);
+  color: var(--text);
+}
+
+.main-content {
+  font-size: var(--text-md);
+}
+
+.bottom-nav {
+  font-size: var(--text-xs);
+}
+
+footer {
+  font-size: var(--text-xs);
+}
+
+h1 {
+  font-size: var(--text-2xl);
+}
+
+h2 {
+  font-size: var(--text-xl);
+}
+
+h3 {
+  font-size: var(--text-lg);
+}
+
+
+
+/* ============================= */
+
+
+/*Reset css*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-main), serif;
+
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  padding: 30px;
+  overflow-y: auto;
+
+
+}
+
+.content-container {
+
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* -------------------------     ----------------------------*/
+.form-control::placeholder {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+
+/* Chrome, Safari, Edge */
+input::placeholder,
+textarea::placeholder {
+  font-family: var(--font-main), serif;
+  color: var(--text);
+  opacity: 0.7;
+  /* opcional, para que se vea más tenue */
+}
+
+/* Estilo del texto que escribe el usuario */
+input,
+textarea {
+  font-family: var(--font-main), serif;
+  /* fuente para el texto */
+  color: var(--text);
+  /* color del texto */
+  font-size: 16px;
+  /* tamaño del texto */
+  line-height: 1.5;
+  /* altura de línea, útil si es textarea */
+  font-weight: 500;
+  /* opcional, grosor de la letra */
+}
+
+
+
+button {
+  font-family: var(--font-main), serif;
+  color: var(--text);
+  /* si quieres mismo color que el texto */
+}
+
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+
+
+main a {
+
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+
+}
+
+/* =========================
+   SCROLL GLOBAL (CHROME / EDGE / SAFARI)
+========================= */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121212;
+  /* fondo del scroll */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2e2e2e;
+  border-radius: 999px;
+  border: 2px solid #121212;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* =========================
+   FIREFOX
+========================= */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2e2e2e #121212;
+}
+
+
+@media(max-width:768px) {
+
+  .main-content {
+    padding: 10px;
+    /*padding mobile global*/
+    padding-bottom: 40px;
+
+
+
+  }
+
+
+
+
+
+
+
+
+}

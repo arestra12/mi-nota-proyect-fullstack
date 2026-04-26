@@ -1,0 +1,70 @@
+.notfound-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background-color: var(--bg, #121212);
+  color: var(--text, #e5e5e5);
+
+  padding: 20px;
+}
+
+.notfound-container h1 {
+  font-size: 8rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 4px;
+  color: #ff4d4d;
+  line-height: 1;
+}
+
+.notfound-container p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* botón opcional */
+.notfound-container button {
+  margin-top: 20px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #2e2e2e;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.notfound-container button:hover {
+  background: #3a3a3a;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+  .notfound-container h1 {
+    font-size: 5rem;
+  }
+
+  .notfound-container p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .notfound-container h1 {
+    font-size: 3.5rem;
+  }
+
+  .notfound-container p {
+    font-size: 1rem;
+  }
+
+  .notfound-container button {
+    width: 100%;
+    max-width: 200px;
+  }
+}

@@ -1,0 +1,13 @@
+.global-title{
+    display: flex;
+    justify-content: end;
+    margin-top: 0;
+}
+h1 {
+  margin: 0; /* 👈 MUY IMPORTANTE */
+}
+
+.global-title {
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,261 @@
+.selectedClick {
+  cursor: pointer;
+}
+
+/* PAGINACION */
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--border-strong);
+  height: 3rem;
+
+
+  border-radius: 0 0 4px 4px;
+  border: 1px solid var(--card-border);
+
+  border-top: none;
+  /* quita solo el top */
+}
+
+.paginacion a {
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem 1rem 0 0;
+  transition: all 0.3s;
+}
+
+.paginacion a:active {
+  transform: scale(0.9);
+}
+
+.paginacion a:hover {
+  background-color: rgb(6, 85, 17);
+}
+
+.paginacion a.actived {
+  background-color: rgb(6, 85, 17);
+}
+
+
+
+
+
+
+
+
+/* =========================
+   LISTA CONTENEDOR
+========================= */
+.ulStyle {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;              /* 👈 permite crecer dinámicamente */
+  min-height: 0;        /* 👈 clave para evitar overflow */
+
+  background-color: var(--card-bg);
+
+  gap: 0.75rem;
+  padding: 1rem;
+
+  border-radius: 8px 8px 0 0;
+  border: 1px solid var(--card-border);
+  border-bottom: none;
+  min-height: 310px;
+  overflow-y: auto;     /* 👈 scroll interno */
+}
+
+/* =========================
+   ITEM
+========================= */
+.ulStyle .li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 0.75rem;
+  padding: 0.6rem 0.8rem;
+
+  min-height: 45px;
+
+  background-color:var(--card-list);
+  border-radius: 0.75rem;
+
+  transition: all 0.2s ease;
+   
+}
+
+/* hover suave */
+.ulStyle .li:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+/* =========================
+   TEXTO
+========================= */
+.ulStyle .li .textCrud {
+  display: flex;
+  align-items: center;
+
+  flex: 1;               /* 👈 ocupa el espacio disponible */
+  min-width: 0;          /* 👈 evita overflow */
+
+  gap: 0.5rem;
+
+  background: transparent;
+  border: none;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =========================
+   ICONOS
+========================= */
+.ulStyle .li .iconCrud {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  flex-shrink: 0; /* 👈 no se encoge */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-filter {
+  background: linear-gradient(135deg, var(--btn-filter-start), var(--btn-filter-end));
+  color: var(--btn-filter-text);
+  box-shadow: 0 4px 6px var(--btn-filter-shadow);
+  transition: all 0.2s ease;
+}
+
+.btn-filter:hover {
+  background: linear-gradient(135deg, var(--btn-filter-hover-start), var(--btn-filter-hover-end));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px var(--btn-filter-shadow-hover);
+}
+
+.btn-filter:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 5px var(--btn-filter-shadow);
+}
+
+
+/*BARRA DE PROGRESO*/
+
+.section-progreso {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+
+  padding: 20px;
+  
+
+}
+
+
+
+
+.progress-container {
+  width: 100%;
+  height: 12px;
+  background: #2a2a2a;
+  border-radius: 10px;
+  overflow: hidden;
+  
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gradiente-start), var(--gradiente-end));
+  transition: width 0.3s ease;
+
+}
+
+
+
+/*MOVIL
+@media(max-width:768px) {
+
+  .ulStyle {
+
+    height: 240px;
+    gap: 0.7rem;
+    padding: 0.5rem;
+
+  }
+
+  .ulStyle .li {
+
+    height: 35px;
+
+  }
+
+
+  .section-progreso {
+
+  padding: 5px;
+  padding-bottom: 10px;
+
+}
+
+.ulStyle .li {
+ font-size: 12px;
+}
+
+}
+
+*/
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+  .ulStyle {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .ulStyle .li {
+    padding: 0.5rem 0.6rem;
+    border-radius: 0.6rem;
+  }
+
+  .ulStyle .li .textCrud {
+    font-size: 13px;
+  }
+
+  .btn {
+  padding: 7px 10px;
+
+  
+ 
+
+}
+
+}

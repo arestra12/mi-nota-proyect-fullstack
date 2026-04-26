@@ -1,0 +1,15 @@
+.background-dots {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-color: var(--puntos);
+
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.15) 1px,
+    var(--bg) 1px
+  );
+
+  background-size: 20px 20px;
+}

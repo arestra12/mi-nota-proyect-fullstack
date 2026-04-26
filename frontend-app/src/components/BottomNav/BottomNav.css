@@ -1,0 +1,125 @@
+.bottom {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    height:54px;
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.05);
+    z-index: 50;
+    padding-bottom: env(safe-area-inset-bottom);
+    
+    /*Evita que el navbar choque con el notch (iPhone, etc.)*/
+
+}
+
+.bottom-nav {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+
+
+}
+
+
+.bottom-item {
+    flex: 1;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+
+    border-radius: 8px;
+    padding: 6px;
+    margin: 0 5px
+}
+
+.bottom-logout {
+    display: flex;
+
+
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+
+}
+
+.bottom-logout-btn {
+
+    flex: 1;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: #ef4444;
+    transition: all 0.2s ease;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    padding: 6px;
+
+
+}
+
+
+/* Todos los iconos del bottom nav */
+.bottom-item svg,
+.bottom-logout-btn svg {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    /* por si FontAwesome usa font-size */
+}
+
+
+/*ACTIVE*/
+
+.bottom-item.active {
+
+    background: linear-gradient(135deg,
+            var(--btn-success-start),
+            var(--btn-success-end));
+
+    font-weight: 500;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+
+
+}
+
+.bottom-item.active svg {
+    color: var(--primary-select);
+}
+
+
+/* ============================= */
+/* 📱 RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    .bottom {
+        display: flex;
+    }
+
+    .bottom-logout-btn span {
+        display: none;
+    }
+
+    .bottom-logout-btn {
+
+        justify-content: center;
+    }
+
+
+
+}

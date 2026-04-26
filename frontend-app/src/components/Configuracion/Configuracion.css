@@ -1,0 +1,145 @@
+.profile-container {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+
+}
+
+/* CONTENEDOR PERFIL */
+.profile-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid var(--card-border);
+}
+
+/* FORMULARIO */
+.profile-form {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid var(--card-border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+/* AVATAR (DOBLE DE TAMAÑO) */
+.avatarPerfil {
+    width: 160px;   /* antes 160px → ahora más evidente */
+    height: 160px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0998c4, #4ade80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    overflow: hidden;
+}
+
+.avatarPerfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+/* TEXTO CENTRADO */
+.profile-card h2,
+.profile-card p {
+    margin: 5px 0;
+    text-align: center;
+}
+
+
+/* BOTONES */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-perfil {
+
+    flex: 1;
+}
+
+
+.btn-danger {
+    background: linear-gradient(135deg, var(--btn-danger-start), var(--btn-danger-end));
+    color: var(--btn-danger-text);
+    box-shadow: 0 4px 6px var(--btn-danger-shadow);
+    transition: all 0.2s ease;
+    justify-content: center;
+
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, var(--btn-danger-hover-start), var(--btn-danger-hover-end));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px var(--btn-danger-shadow-hover);
+}
+
+.btn-danger:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 5px var(--btn-danger-shadow);
+}
+
+.btn-perfil{
+        justify-content: center;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    .profile-card,
+    .profile-form {
+        padding: 15px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+     /*Acomodar nombre y correo*/
+    .profile-card h2 {
+        font-size: 1.2rem;
+        word-break: break-word;
+        max-width: 100%;
+    }
+
+    .profile-card p {
+        font-size: 0.95rem;
+        word-break: break-word;
+        max-width: 100%;
+    }
+
+     .avatarPerfil {
+        width: 120px;
+        height: 120px;
+    }
+
+
+}

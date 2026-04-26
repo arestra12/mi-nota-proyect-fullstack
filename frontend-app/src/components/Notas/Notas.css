@@ -1,0 +1,102 @@
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 24px;
+
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* CARD */
+.note-card {
+  position: relative;
+  overflow: hidden;
+
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  padding: 16px;
+  text-decoration: none;
+
+  display: flex;
+  align-items: flex-end;
+
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 0 0 3px var(--shadow-input);
+
+
+  
+
+  /* 🔥 IMAGEN DE FONDO */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+/* HOVER */
+.note-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border: 2px solid var(--primary)
+}
+
+/* 🔥 overlay oscuro */
+.note-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--card-opacity);
+  z-index: 1;
+}
+
+/* CONTENIDO */
+.note-card span {
+  position: relative;
+  z-index: 2;
+  color:var(--text-note);
+  font-weight: bold;
+  font-size: 16px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.pet-item {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+
+/*PINNED*/
+.note-card {
+  position: relative;
+}
+
+.pin-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+
+  background: var(--btn-back-shadow);
+  border-radius: 50%;
+  padding: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.pin-icon.fijado {
+
+  color:var(--pinned);
+}
