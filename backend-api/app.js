@@ -5,8 +5,6 @@ import notesRouter from "./routes/notes.js"
 import { clerkMiddleware } from '@clerk/express'
 import webhookRoutes from "./routes/webhook.js"
 
-
-process.loadEnvFile()
 const app =express()
 
 //middlewares
