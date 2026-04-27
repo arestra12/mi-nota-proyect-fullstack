@@ -11,14 +11,17 @@ Una aplicación fullstack para gestión de notas con autenticación, backend API
 - React Router
 - Zustand
 - Clerk Auth
-- FontAwesome
+- HTML, CSS
 
 ### Backend
+- Arquitectura MVC
 - Node.js
 - Express
 - Clerk Middleware
 - CORS
 - Webhooks
+- zod
+- Prisma
 
 ### Base de datos
 - PostgreSQL (Vercel Storage)
