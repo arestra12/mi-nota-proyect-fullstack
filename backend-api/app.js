@@ -4,6 +4,7 @@ import tasksRouter from "./routes/tasks.js"
 import notesRouter from "./routes/notes.js"
 import { clerkMiddleware } from "@clerk/express"
 import webhookRoutes from "./routes/webhook.js"
+import cors from "cors"
 
 const app = express()
 
