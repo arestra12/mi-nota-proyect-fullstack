@@ -6,6 +6,7 @@ export class NoteControllers {
     static async getAll(request, response) {
 
         console.log("HEADERS:", request.headers.authorization)
+        console.log("usuario llego::",userId)
 
         const { userId } = getAuth(request)
 
