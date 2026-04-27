@@ -17,7 +17,7 @@ app.use("/webhook", webhookRoutes)
 // 🌐 MIDDLEWARES GENERALES
 // ========================
 app.use(middlewareCors())
-app.options("*", cors())
+app.options('/*', cors());
 app.use(express.json())
 
 // ========================
