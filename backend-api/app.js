@@ -10,8 +10,8 @@ const app = express()
 // ========================
 // 🔥 WEBHOOK (CLERK)
 // ========================
+app.use("/webhook", express.raw({ type: "application/json" }))
 app.use("/webhook", webhookRoutes)
-
 // ========================
 // 🌐 MIDDLEWARES GENERALES
 // ========================
