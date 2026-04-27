@@ -56,6 +56,8 @@ export class NoteControllers {
 
         const { userId } = getAuth(request)
 
+        console.log("usuario llego:",userId)
+
 
 
         const { title, content, pinned = false, pet } = request.body
