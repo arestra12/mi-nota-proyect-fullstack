@@ -6,6 +6,8 @@ import { useFormulario } from '../../hooks/useForm'
 import { tasksStore } from '../../store/tasksStore'
 import { Modal } from '../Modals/Modal' // 👈 importa
 
+import { toast } from 'react-toastify'
+
 const Tarea = ({ task }) => {
   const updateTask = tasksStore(state => state.updateTask)
   const deleteTask = tasksStore(state => state.deleteTask)
@@ -31,6 +33,13 @@ const Tarea = ({ task }) => {
     })
 
     setOpenModal(false)
+    toast.info("Tarea actualizada ✏️");
+  }
+
+
+  const handleDelete = (id) => {
+    deleteTask(id)
+    toast.error("Tarea eliminada 🗑️")
   }
 
   return (
@@ -51,7 +60,7 @@ const Tarea = ({ task }) => {
       {/* ICONOS */}
       <div className='iconCrud'>
         <FontAwesomeIcon className='selectedClick' onClick={editar} icon={faEdit} />
-        <FontAwesomeIcon className='selectedClick' onClick={() => deleteTask(task.id)} icon={faTrash} />
+        <FontAwesomeIcon className='selectedClick' onClick={() => handleDelete(task.id)} icon={faTrash}/>
       </div>
 
       {/* MODAL */}
@@ -62,7 +71,7 @@ const Tarea = ({ task }) => {
             <form onSubmit={onSubmit} className='modal-form'>
               <h3>Editar tarea</h3>
 
-              <input name='text' value={text} onChange={inputChange} className='form-control' type="text" autoFocus/>
+              <input name='text' value={text} onChange={inputChange} className='form-control' type="text" autoFocus />
 
               <button className='btn btn-success btn-update'>Guardar</button>
             </form>

@@ -3,6 +3,7 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import { useFormulario } from '../../hooks/useForm'
 import "./Form.css"
 import { tasksStore } from '../../store/tasksStore';
+import { toast } from 'react-toastify';
 
 
 
@@ -26,6 +27,7 @@ const Form = () => {
     }
     addTask(newTodo)
     inputReset()
+    toast.success("Tarea agregada ✅");
 
   }
 
