@@ -1,7 +1,8 @@
 import { useUser, useClerk } from "@clerk/clerk-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Configuracion.css";
 import { Modal } from "../Modals/Modal";
+import { toast } from "react-toastify";
 
 export const Configuracion = () => {
   const { user, isLoaded } = useUser();
@@ -9,20 +10,35 @@ export const Configuracion = () => {
   const [name, setName] = useState("");
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
+  // 🔥 PRECARGAR NOMBRE DEL USUARIO
+  useEffect(() => {
+    if (user) {
+      setName(user.firstName || "");
+    }
+  }, [user]);
+
+
   if (!isLoaded) return <p>Cargando...</p>;
 
   const handleUpdate = async () => {
+    if (!name.trim()) {
+      toast.warning("El nombre no puede estar vacío ⚠️");
+      return;
+    }
+
     try {
       await user.update({
         firstName: name,
       });
-      alert("Nombre actualizado");
-      setName("");
+      toast.success("Nombre actualizado ✏️");
     } catch (error) {
       console.error(error);
     }
   };
 
+
+
+  // 🔥 ELIMINAR CUENTA
   const handleDeleteAccount = async () => {
     try {
       await user.delete();
@@ -80,6 +96,8 @@ export const Configuracion = () => {
           </button>
         </div>
       </div>
+
+
 
       {openDeleteModal && (
         <Modal onClose={() => setOpenDeleteModal(false)}>
