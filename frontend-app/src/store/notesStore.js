@@ -44,14 +44,14 @@ export const notesStore = create((set, get) => ({
   // 🔥 GET NOTE
   fetchNote: async (id) => {
     try {
-      set({ error: null, note: null });
+      set({ error: null, note: null ,loading: true  });
 
       const data = await getNoteApi(id);
 
-      set({ note: data });
+      set({ note: data ,loading: false});
 
     } catch (error) {
-      set({ error: error.message });
+      set({ error: error.message , loading: false });
     }
   },
 
