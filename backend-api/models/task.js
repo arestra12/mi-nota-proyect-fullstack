@@ -2,7 +2,7 @@ import { prisma } from "../prisma/client.js"
 
 export class TaskModels {
 
-  static async getAll({ userId, limit = 10, offset = 0 }) {
+  static async getAll({ userId, limit, offset }) {
     return await prisma.task.findMany({
       where: { userId },
       skip: offset,
