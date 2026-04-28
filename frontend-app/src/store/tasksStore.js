@@ -73,28 +73,56 @@ export const tasksStore = create((set) => ({
         }
 
     },
-
     updateState: async (task) => {
-        try {
+    // 🧠 guardar estado anterior (por si falla)
+    let previousTasks
 
-            const stateUpdate = await patchState(task)
+    set((state) => {
+        previousTasks = state.tasks
 
-            set((state) => ({
-                tasks: state.tasks.map(t => {
-                    if (t.id === stateUpdate.id) {
-
-                        return { ...t, completed: stateUpdate.completed }
-                    }
-                    return t
-
-                })
-            }))
-
-        } catch (error) {
-            set({ error: error.message })
-
+        return {
+            tasks: state.tasks.map(t => {
+                if (t.id === task.id) {
+                    return { ...t, completed: !t.completed } // 👈 cambio instantáneo
+                }
+                return t
+            })
         }
+    })
 
+    try {
+        await patchState(task) // 👈 backend en segundo plano
+    } catch (error) {
+        // ❌ rollback si falla
+        set({ tasks: previousTasks, error: error.message })
     }
+}
+
+
+
+    /*
+   
+       updateState: async (task) => {
+           try {
+   
+               const stateUpdate = await patchState(task)
+   
+               set((state) => ({
+                   tasks: state.tasks.map(t => {
+                       if (t.id === stateUpdate.id) {
+   
+                           return { ...t, completed: stateUpdate.completed }
+                       }
+                       return t
+   
+                   })
+               }))
+   
+           } catch (error) {
+               set({ error: error.message })
+   
+           }
+   
+       } */
 
 }))
