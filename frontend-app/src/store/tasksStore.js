@@ -29,7 +29,7 @@ export const tasksStore = create((set) => ({
 
             const taskAdd = await createTask(task)
 
-            set((state) => ({ tasks: [...state.tasks, taskAdd] }))
+            set((state) => ({ tasks: [taskAdd, ...state.tasks ] }))
 
         } catch (error) {
             set({ error: error.message })
