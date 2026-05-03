@@ -5,7 +5,6 @@ import React from 'react'
 
 const ListaTareas = ({elementsPerPage,...rest}) => {
 
-   const filteredTasks = elementsPerPage.filter(task => !task.isDeleted)
 
 
 
@@ -16,8 +15,8 @@ const ListaTareas = ({elementsPerPage,...rest}) => {
       <div className='ulStyle'>
 
         {
-          filteredTasks.length > 0 ?
-            filteredTasks.map(task => { return <Tarea key={task.id} task={task}></Tarea> })
+          elementsPerPage.length > 0 ?
+            elementsPerPage.map(task => { return <Tarea key={task.id} task={task}></Tarea> })
             : <h4>No hay tareas</h4>
         }
       </div>

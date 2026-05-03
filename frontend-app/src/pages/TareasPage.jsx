@@ -11,8 +11,8 @@ import { tasksStore } from '../store/tasksStore'
 import { ReciclajeTareas } from '../components/ListaTareas/ReciclajeTareas'
 
 export const TareasPage = memo(() => {
-  const { tasks } = useTask()
-  const tasksData = useTasksLogic(tasks)
+  const { tasks,activeTasks, deletedTasks } = useTask()
+  const tasksData = useTasksLogic(activeTasks)
   const deleteAllTasks = tasksStore(state => state.deleteAllTasks)
 
 
@@ -32,7 +32,7 @@ export const TareasPage = memo(() => {
 
 
           <h3 >
-            Tareas totales: {tasks.length}
+            Tareas totales: {activeTasks.length}
           </h3>
         </div>
 
@@ -62,12 +62,12 @@ export const TareasPage = memo(() => {
       <div className='task-progress' >
 
         <ReciclajeTareas
-          tasks={tasks}
+          deletedTasks={deletedTasks}
           onDeleteAll={deleteAllTasks}
           onSendEmail={handleSendEmail}
         />
 
-        <ProgresoBar tasks={tasks}></ProgresoBar>
+        <ProgresoBar activeTasks={activeTasks}></ProgresoBar>
       </div>
 
     </section>

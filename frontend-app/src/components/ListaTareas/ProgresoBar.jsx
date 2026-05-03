@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const ProgresoBar = ({ tasks }) => {
+export const ProgresoBar = ({ activeTasks }) => {
 
-    const safeTasks = Array.isArray(tasks) ? tasks : []
+    const safeTasks = Array.isArray(activeTasks) ? activeTasks : []
 
     const total = safeTasks.length
     const completed = safeTasks.filter(t => t.completed).length

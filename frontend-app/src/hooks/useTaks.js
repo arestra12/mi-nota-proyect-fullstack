@@ -10,7 +10,13 @@ export const useTask = () => {
         fetchTasks()
     }, [])
 
+    // 🧠 separación de estado
+    const activeTasks = tasks.filter(t => !t.isDeleted)
+    const deletedTasks = tasks.filter(t => t.isDeleted)
 
-
-    return {tasks}
+    return {
+        tasks,
+        activeTasks,
+        deletedTasks
+    }
 }

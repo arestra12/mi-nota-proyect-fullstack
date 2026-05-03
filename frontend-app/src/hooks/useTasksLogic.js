@@ -3,7 +3,7 @@ import { tasksStore } from "../store/tasksStore"
 import { useEffect, useMemo } from "react"
 
 
-export const useTasksLogic = (tasks) => {
+export const useTasksLogic = (activeTasks) => {
 
     const numPages = 5
 
@@ -19,8 +19,8 @@ export const useTasksLogic = (tasks) => {
 
 
     const safeTasks = useMemo(
-        () => Array.isArray(tasks) ? tasks : [],
-        [tasks]
+        () => Array.isArray(activeTasks) ? activeTasks : [],
+        [activeTasks]
     )
 
     const taskFilter = obtenerEstado ? safeTasks : safeTasks.filter(task => task.completed === false)
