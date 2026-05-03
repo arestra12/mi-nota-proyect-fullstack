@@ -14,7 +14,9 @@ tasksRouter.get("/:id",TaskControllers.getById)
 
 tasksRouter.post("/",validateCreateTask ,TaskControllers.create)
 
-tasksRouter.delete("/:id", TaskControllers.delete)
+tasksRouter.patch("/:id/soft-delete", TaskControllers.softDelete)
+
+tasksRouter.delete("/", TaskControllers.deleteAll)
 
 tasksRouter.patch("/:id",validatePatchTask,TaskControllers.patch)
 

@@ -10,7 +10,7 @@ import { toast } from 'react-toastify'
 
 const Tarea = ({ task }) => {
   const updateTask = tasksStore(state => state.updateTask)
-  const deleteTask = tasksStore(state => state.deleteTask)
+  const deleteSoftTask = tasksStore(state => state.deleteSoftTask)
   const updateState = tasksStore(state => state.updateState)
 
   const { text, inputChange, setValues } = useFormulario({ text: task.text })
@@ -37,9 +37,9 @@ const Tarea = ({ task }) => {
   }
 
 
-  const handleDelete = (id) => {
-    deleteTask(id)
-    toast.error("Tarea eliminada 🗑️")
+  const handleDeleteSoft = (id) => {
+    deleteSoftTask(id)
+    toast.error("Tarea reciclada 🗑️")
   }
 
   return (
@@ -60,7 +60,7 @@ const Tarea = ({ task }) => {
       {/* ICONOS */}
       <div className='iconCrud'>
         <FontAwesomeIcon className='selectedClick' onClick={editar} icon={faEdit} />
-        <FontAwesomeIcon className='selectedClick' onClick={() => handleDelete(task.id)} icon={faTrash}/>
+        <FontAwesomeIcon className='selectedClick' onClick={() => handleDeleteSoft(task.id)} icon={faTrash}/>
       </div>
 
       {/* MODAL */}

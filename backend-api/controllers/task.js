@@ -8,7 +8,7 @@ export class TaskControllers {
         const { userId } = getAuth(request)
 
         if (!userId) {
-            return response.status(401).json({"Error":"Unauthorized"})
+            return response.status(401).json({ "Error": "Unauthorized" })
         }
 
 
@@ -25,7 +25,7 @@ export class TaskControllers {
             return response.status(400).json({ error: "offset debe ser un valor numerico" })
         }
 
-        const paginatedTask = await TaskModels.getAll({userId:userId, limit: limitNum, offset: offsetNum })
+        const paginatedTask = await TaskModels.getAll({ userId: userId, limit: limitNum, offset: offsetNum })
         /*
         Rompe tareas
         if (paginatedTask.length === 0) {
@@ -39,9 +39,9 @@ export class TaskControllers {
     static async getById(request, response) {
 
         const { userId } = getAuth(request)
-        
+
         if (!userId) {
-            return response.status(401).json({"Error":"Unauthorized"})
+            return response.status(401).json({ "Error": "Unauthorized" })
         }
 
 
@@ -64,9 +64,9 @@ export class TaskControllers {
 
 
         const { userId } = getAuth(request)
-        
+
         if (!userId) {
-            return response.status(401).json({"Error":"Unauthorized"})
+            return response.status(401).json({ "Error": "Unauthorized" })
         }
 
 
@@ -78,31 +78,48 @@ export class TaskControllers {
             return response.status(400).json({ error: "Body incompleto" })
         }
 
-        const newTask = await TaskModels.create({userId, text })
+        const newTask = await TaskModels.create({ userId, text })
 
         return response.status(201).json({ message: "Nuevo task creado", task: newTask })
     }
 
-    static async delete(request, response) {
+
+    static async softDelete(request, response) {
 
         const { userId } = getAuth(request)
-        
+
         if (!userId) {
-            return response.status(401).json({"Error":"Unauthorized"})
+            return response.status(401).json({ error: "Unauthorized" })
         }
-
-
-
 
         const { id } = request.params
 
-        const deleteTask = await TaskModels.delete(userId, id)
+        const result = await TaskModels.softDelete(userId, id)
 
-        if (!deleteTask) {
+        if (!result) {
             return response.status(404).json({ error: "Task no encontrado" })
         }
 
-        return response.status(200).json({ message: "Task eliminado correctamente" })
+        return response.status(200).json({ message: "Task movida a papelera" })
+    }
+
+
+
+
+    static async deleteAll(request, response) {
+
+        const { userId } = getAuth(request)
+
+        if (!userId) {
+            return response.status(401).json({ error: "Unauthorized" })
+        }
+
+        const count = await TaskModels.deleteAll(userId)
+
+        return response.status(200).json({
+            message: "Todas las tareas eliminadas permanentemente",
+            count
+        })
     }
 
 
@@ -111,9 +128,9 @@ export class TaskControllers {
     static async patch(request, response) {
 
         const { userId } = getAuth(request)
-        
+
         if (!userId) {
-            return response.status(401).json({"Error":"Unauthorized"})
+            return response.status(401).json({ "Error": "Unauthorized" })
         }
 
 
@@ -126,7 +143,7 @@ export class TaskControllers {
             return response.status(400).json({ error: "Body incompleto" })
         }
 
-        const updateTask = await TaskModels.patch({userId, text, completed, id })
+        const updateTask = await TaskModels.patch({ userId, text, completed, id })
 
         if (!updateTask) {
             return response.status(404).json({ error: "Task no encontrado" })

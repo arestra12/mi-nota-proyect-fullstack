@@ -15,8 +15,16 @@ export const createTask =async(task)=>{
 }
 
 
-export const deleteTaskApi= async (id)=>{
-    return fetchWithAuth(`${API_URL}/tasks/${id}`,{method:"DELETE"})
+export const deleteSoftTaskApi = async (id) => {
+  return fetchWithAuth(`${API_URL}/tasks/${id}/soft-delete`, {method: "PATCH"})
+}
+
+
+
+export const deleteAllTaskApi = async () => {
+  return fetchWithAuth(`${API_URL}/tasks`, {
+    method: "DELETE"
+  })
 }
 
 

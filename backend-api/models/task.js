@@ -30,14 +30,39 @@ export class TaskModels {
     })
   }
 
-  static async delete(userId, id) {
-    const deleted = await prisma.task.deleteMany({
-      where: { id, userId }
+  static async softDelete(userId, id) {
+
+    const updated = await prisma.task.updateMany({
+      where: {
+        id,
+        userId,
+        isDeleted: false // evita re-eliminar
+      },
+      data: {
+        isDeleted: true,
+        deletedAt: new Date()
+      }
     })
 
-    return deleted.count > 0
+    return updated.count > 0
   }
 
+
+
+
+
+
+  static async deleteAll(userId) {
+
+    const result = await prisma.task.deleteMany({
+      where: {
+        userId,
+        isDeleted: true
+      }
+    })
+
+    return result.count
+  }
   static async patch({ userId, id, text, completed }) {
     const updated = await prisma.task.updateMany({
       where: { id, userId },

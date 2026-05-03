@@ -195,6 +195,91 @@
 }
 
 
+/*Reciclaje*/
+.recycle-container {
+  margin: 20px 0;
+}
+
+.recycle-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: #1f1f1f;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+
+.recycle-card:hover {
+  background: #2a2a2a;
+}
+
+.recycle-icon {
+  font-size: 20px;
+  color: #f59e0b;
+}
+
+.recycle-info h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.recycle-info p {
+  margin: 0;
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* MODAL */
+.recycle-modal {
+  padding: 20px;
+  color: white;
+  min-width: 300px;
+}
+
+.recycle-list {
+  margin: 15px 0;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.recycle-item {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.empty {
+  color: #888;
+  text-align: center;
+}
+
+.recycle-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-email,
+.btn-delete-all {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.btn-email {
+  background: #2563eb;
+}
+
+.btn-delete-all {
+  background: #dc2626;
+}
+
+
 
 /*MOVIL
 @media(max-width:768px) {

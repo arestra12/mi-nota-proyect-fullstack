@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { getTasks, createTask, deleteTaskApi, patchTask, patchState } from "../services/tasksServices"
+import { getTasks, createTask, deleteSoftTaskApi, deleteAllTaskApi, patchTask, patchState } from "../services/tasksServices"
 
 export const tasksStore = create((set) => ({
     tasks: [],
@@ -29,7 +29,7 @@ export const tasksStore = create((set) => ({
 
             const taskAdd = await createTask(task)
 
-            set((state) => ({ tasks: [taskAdd, ...state.tasks ] }))
+            set((state) => ({ tasks: [taskAdd, ...state.tasks] }))
 
         } catch (error) {
             set({ error: error.message })
@@ -39,10 +39,10 @@ export const tasksStore = create((set) => ({
 
     },
 
-    deleteTask: async (id) => {
+    deleteSoftTask: async (id) => {
         try {
             set({ error: null, loading: true })
-            await deleteTaskApi(id)
+            await deleteSoftTaskApi(id)
 
             set((state) => ({ tasks: state.tasks.filter(t => t.id !== id), loading: false }))
         } catch (error) {
@@ -73,30 +73,54 @@ export const tasksStore = create((set) => ({
         }
 
     },
-    updateState: async (task) => {
-    // 🧠 guardar estado anterior (por si falla)
-    let previousTasks
+    deleteAllTasks: async () => {
 
-    set((state) => {
-        previousTasks = state.tasks
+        let previousTasks
 
-        return {
-            tasks: state.tasks.map(t => {
-                if (t.id === task.id) {
-                    return { ...t, completed: !t.completed } // 👈 cambio instantáneo
-                }
-                return t
+        // 🔥 snapshot completo
+        set((state) => {
+            previousTasks = state.tasks
+
+            return {
+                tasks: state.tasks.filter(t => !t.isDeleted) // 👈 UI instantánea
+            }
+        })
+
+        try {
+            await deleteAllTaskApi()
+
+        } catch (error) {
+            // ❌ rollback total
+            set({
+                tasks: previousTasks,
+                error: error.message
             })
         }
-    })
+    },
+    updateState: async (task) => {
+        // 🧠 guardar estado anterior (por si falla)
+        let previousTasks
 
-    try {
-        await patchState(task) // 👈 backend en segundo plano
-    } catch (error) {
-        // ❌ rollback si falla
-        set({ tasks: previousTasks, error: error.message })
+        set((state) => {
+            previousTasks = state.tasks
+
+            return {
+                tasks: state.tasks.map(t => {
+                    if (t.id === task.id) {
+                        return { ...t, completed: !t.completed } // 👈 cambio instantáneo
+                    }
+                    return t
+                })
+            }
+        })
+
+        try {
+            await patchState(task) // 👈 backend en segundo plano
+        } catch (error) {
+            // ❌ rollback si falla
+            set({ tasks: previousTasks, error: error.message })
+        }
     }
-}
 
 
 

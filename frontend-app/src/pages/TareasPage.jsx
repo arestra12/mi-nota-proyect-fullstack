@@ -7,10 +7,17 @@ import { useTask } from '../hooks/useTaks'
 import { useTasksLogic } from '../hooks/useTasksLogic'
 import { EstadoTareas } from '../components/ListaTareas/EstadoTareas'
 import { ProgresoBar } from '../components/ListaTareas/ProgresoBar'
+import { tasksStore } from '../store/tasksStore'
 
 export const TareasPage = memo(() => {
   const { tasks } = useTask()
   const tasksData = useTasksLogic(tasks)
+  const deleteAllTasks = tasksStore(state => state.deleteAllTasks)
+
+
+  const handleSendEmail = (deletedTasks) => {
+    console.log("Enviar email con:", deletedTasks)
+  }
 
   return (
 
@@ -51,8 +58,16 @@ export const TareasPage = memo(() => {
         </div>
       </div>
 
+      //basura aqui
+
 
       <div className='task-progress' >
+
+        <ReciclajeTareas
+          tasks={tasks}
+          onDeleteAll={deleteAllTasks}
+          onSendEmail={handleSendEmail}
+        />
 
         <ProgresoBar tasks={tasks}></ProgresoBar>
       </div>
