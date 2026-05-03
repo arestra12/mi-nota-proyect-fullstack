@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEnvelope, faRecycle } from '@fortawesome/free-solid-svg-icons'
 import { Modal } from '../Modals/Modal'
-import "./ReciclajeTareas.css"
 
 export const ReciclajeTareas = ({ tasks, onDeleteAll, onSendEmail }) => {
 
