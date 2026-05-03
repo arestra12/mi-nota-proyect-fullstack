@@ -168,14 +168,13 @@
   gap: 10px;
 
   background-color: var(--card-bg);
+  border-radius: 4px;
   border: 1px solid var(--card-border);
 
   padding: 20px;
   
 
 }
-
-
 
 
 .progress-container {
@@ -197,7 +196,7 @@
 
 /*Reciclaje*/
 .recycle-container {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .recycle-card {
@@ -205,10 +204,10 @@
   align-items: center;
   gap: 12px;
   padding: 14px;
-  background: #1f1f1f;
-  border-radius: 12px;
+  background-color: var(--card-bg);
+  border-radius: 4px;
+  border: 1px solid var( --card-border);
   cursor: pointer;
-  color: white;
   transition: 0.2s;
 }
 
@@ -223,7 +222,7 @@
 
 .recycle-info h3 {
   margin: 0;
-  font-size: 16px;
+
 }
 
 .recycle-info p {
@@ -234,8 +233,7 @@
 
 /* MODAL */
 .recycle-modal {
-  padding: 20px;
-  color: white;
+  padding: 10px;
   min-width: 300px;
 }
 
@@ -244,6 +242,7 @@
   max-height: 250px;
   overflow-y: auto;
 }
+
 
 .recycle-item {
   padding: 10px;
@@ -255,21 +254,21 @@
   text-align: center;
 }
 
+
+
+
+
+
+
+
+
 .recycle-actions {
   display: flex;
   gap: 10px;
   margin-top: 15px;
 }
 
-.btn-email,
-.btn-delete-all {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  color: white;
-}
+
 
 .btn-email {
   background: #2563eb;

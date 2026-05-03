@@ -60,6 +60,7 @@ export const TareasPage = memo(() => {
       </div>
 
       <div className='task-progress' >
+        <ProgresoBar activeTasks={activeTasks}></ProgresoBar>
 
         <ReciclajeTareas
           deletedTasks={deletedTasks}
@@ -67,7 +68,6 @@ export const TareasPage = memo(() => {
           onSendEmail={handleSendEmail}
         />
 
-        <ProgresoBar activeTasks={activeTasks}></ProgresoBar>
       </div>
 
     </section>

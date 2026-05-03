@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash, faEnvelope, faRecycle } from '@fortawesome/free-solid-svg-icons'
-import { Modal } from '../Modals/Modal'
+import { faTrash, faFileLines, faRecycle } from '@fortawesome/free-solid-svg-icons'
+import { ModalTasks } from '../Modals/ModalTasks'
+
+import { exportToTxt } from "../../utils/exportTasks"
 
 export const ReciclajeTareas = ({ deletedTasks, onDeleteAll, onSendEmail }) => {
 
@@ -27,7 +29,7 @@ export const ReciclajeTareas = ({ deletedTasks, onDeleteAll, onSendEmail }) => {
       {/* MODAL */}
       {
         openModal && (
-          <Modal onClose={() => setOpenModal(false)}>
+          <ModalTasks onClose={() => setOpenModal(false)}>
 
             <div className='recycle-modal'>
 
@@ -39,10 +41,10 @@ export const ReciclajeTareas = ({ deletedTasks, onDeleteAll, onSendEmail }) => {
                 {
                   deletedTasks.length > 0
                     ? deletedTasks.map(task => (
-                        <div key={task.id} className='recycle-item'>
-                          <span>{task.text}</span>
-                        </div>
-                      ))
+                      <div key={task.id} className='recycle-item'>
+                        <span>{task.text}</span>
+                      </div>
+                    ))
                     : <p className='empty'>No hay tareas eliminadas</p>
                 }
               </div>
@@ -51,26 +53,26 @@ export const ReciclajeTareas = ({ deletedTasks, onDeleteAll, onSendEmail }) => {
               <div className='recycle-actions'>
 
                 <button
-                  className='btn-email'
-                  onClick={() => onSendEmail(deletedTasks)}
+                  className='btn btn-back send-mail-modal'
+                  onClick={() => exportToTxt(deletedTasks)}
                 >
-                  <FontAwesomeIcon icon={faEnvelope} />
-                  Enviar por correo
+                  Exportar TXT
+                  <FontAwesomeIcon icon={faFileLines} />
                 </button>
 
                 <button
-                  className='btn-delete-all'
+                  className='btn btn-danger delete-modal'
                   onClick={() => onDeleteAll()}
                 >
-                  <FontAwesomeIcon icon={faTrash} />
                   Eliminar todo
+                  <FontAwesomeIcon icon={faTrash} />
                 </button>
 
               </div>
 
             </div>
 
-          </Modal>
+          </ModalTasks>
         )
       }
 
