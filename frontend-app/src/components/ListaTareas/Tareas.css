@@ -342,4 +342,21 @@
 
 }
 
+.recycle-actions {
+  flex-direction: column;
+}
+
+.send-mail-modal{
+  justify-content: center;
+}
+
+
+.recycle-modal {
+  min-width: 295px;
+}
+
+
+
+
+
 }

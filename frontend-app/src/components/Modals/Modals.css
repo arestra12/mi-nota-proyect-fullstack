@@ -156,3 +156,17 @@
   padding: 20px;
   max-width: 450px;
 }
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+
+    .modal-content-tasks {
+     max-width: 380px;
+
+}
+
+}
