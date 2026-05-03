@@ -8,6 +8,7 @@ import { useTasksLogic } from '../hooks/useTasksLogic'
 import { EstadoTareas } from '../components/ListaTareas/EstadoTareas'
 import { ProgresoBar } from '../components/ListaTareas/ProgresoBar'
 import { tasksStore } from '../store/tasksStore'
+import { ReciclajeTareas } from '../components/ListaTareas/ReciclajeTareas'
 
 export const TareasPage = memo(() => {
   const { tasks } = useTask()
