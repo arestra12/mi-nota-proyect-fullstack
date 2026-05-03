@@ -3,12 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEnvelope, faRecycle } from '@fortawesome/free-solid-svg-icons'
 import { Modal } from '../Modals/Modal'
 
-export const ReciclajeTareas = ({ tasks, onDeleteAll, onSendEmail }) => {
+export const ReciclajeTareas = ({ deletedTasks, onDeleteAll, onSendEmail }) => {
 
   const [openModal, setOpenModal] = useState(false)
-
-  // 🔥 SOLO eliminadas
-  const deletedTasks = tasks.filter(t => t.isDeleted)
 
   return (
     <div className='recycle-container'>
