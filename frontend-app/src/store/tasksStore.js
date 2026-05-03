@@ -40,18 +40,34 @@ export const tasksStore = create((set) => ({
     },
 
     deleteSoftTask: async (id) => {
-        try {
-            set({ error: null, loading: true })
-            await deleteSoftTaskApi(id)
 
-            set((state) => ({ tasks: state.tasks.filter(t => t.id !== id), loading: false }))
+        let previousTasks
+
+        // 🧠 snapshot del estado anterior
+        set((state) => {
+            previousTasks = state.tasks
+
+            return {
+                tasks: state.tasks.map(t =>
+                    t.id === id
+                        ? { ...t, isDeleted: true, deletedAt: new Date() } // 👈 cambio inmediato
+                        : t
+                )
+            }
+        })
+
+        try {
+            await deleteSoftTaskApi(id) // 👈 backend
+
         } catch (error) {
 
-            set({ error: error.message, loading: false })
-
+            // ❌ rollback si falla
+            set({
+                tasks: previousTasks,
+                error: error.message
+            })
         }
     },
-
     updateTask: async (task) => {
         try {
 

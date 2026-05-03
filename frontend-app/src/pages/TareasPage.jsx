@@ -59,9 +59,6 @@ export const TareasPage = memo(() => {
         </div>
       </div>
 
-      //basura aqui
-
-
       <div className='task-progress' >
 
         <ReciclajeTareas
